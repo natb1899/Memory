@@ -1,12 +1,12 @@
 # Memory
-![](img/mockup/Success Level.png)
+![](img/mockup/level_success.png)
 
-![](img/mockup/Fail Level.png)
+![](img/mockup/level_fail.png)
 
-![](img/mockup/Memory.png)
+![](img/mockup/memory.png)
 
-![](img/mockup/Starting page.png)
+![](img/mockup/start_page.png)
 
-![](img/mockup/Game Level Map 2.png)
+![](img/mockup/game_level_map_2.png)
 
-![](img/mockup/Game Level Map.png)
+![](img/mockup/game_level_map.png)

@@ -1,14 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 :root {
     --backgroundcolor: beige;
     --primarycolor: orange;
     --secondarycolor: white;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* COMMENT HERE */
+    box-sizing: border-box; /* If you set box-sizing: border-box; on an element, padding and border are included in the width and height: */
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -17,11 +18,28 @@ body {
     align-items: center;
     justify-content: center;
     background-color: var(--backgroundcolor);
+    min-height: 100vh; /* Relative to 1% of the height of the browser window size */
 }
 
 .wrapper {
-    height: 400px;
-    width: 400px;
+    height: 800px;
+}
+
+.wrapper section {
+    height: 100%;
+    display: inline-block;
+}
+
+.menu {
+    width: 250px;
     background-color: var(--secondarycolor);
     border-radius: 10px;
+    margin-right: 5px;
+}
+
+.memory {
+    width: 800px;
+    background-color: var(--secondarycolor);
+    border-radius: 10px;
+    margin-left: 5px;
 }

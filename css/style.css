@@ -21,6 +21,26 @@ body {
     min-height: 100vh; /* Relative to 1% of the height of the browser window size */
 }
 
+h1.title {
+    text-align: center;
+    font-size: 65px;
+    margin-bottom: 50px;
+}
+
+button {
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+}
+
+button:hover {
+    background:black;
+    color: var(--secondarycolor);
+}
+
 .wrapper {
     height: 800px;
 }

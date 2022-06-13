@@ -1,164 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Index</title>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-    <section class="wrapper">
-        <section class="menu">
-            <div class="timerView">
-                <h1>Timer</h1>
-                <span class="timer">0</span>
-            </div>
-            <div class="pointView">
-                <h1>Points</h1>
-                <span class="points">0</span>
-            </div>
-            <div class="counterView">
-                <h1>Counter</h1>
-                <span class="counter">0</span>
-            </div>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Memory</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+        <script src="js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+    <div id="myModal" class="modal">
+        <div class="modal-content" id="myModalContent">
+            <div id="modal-bild"></div>
+            <p id="modal-points"></p>
+            <p id="contentPopUp"></p>
+            <a id="btnPopUp" class="buttonPopUp"></a>
+            <a id="btnPopUp2" class="buttonPopUp"></a>
+        </div>
+    </div>
+        <section class="wrapper">
+            <section class="menu">
+                <div class="timerView">
+                    <h1>Timer</h1>
+                    <span class="timer">00:00</span>
+                </div>
+                <div class="attemptsView">
+                    <h1>Counter</h1>
+                    <span class="attemptsHolder">0</span>
+                </div>
+                <div class="pointView">
+                    <h1>Points</h1>
+                    <span class="pointsHolder">0</span>
+                </div>
+                <div class="dropdown">
+                    <div id="dropdownMenu" class="dropdown-content">
+                        <a href="level.html">< back</a>
+                        <a href="bestenliste.html">Scoreboard</a>
+                    </div>
+                </div>
+            </section>
+            <section class="playground">
+                <div id="character" class="mario"></div>
+            </section>
+            <section id="bossCage">
+                <img id="boss" src="img/princess-peach.png">
+                <div id="healthBar">
+                    <div id="healthBarContent"></div>
+                </div>
+            </section>
         </section>
-
-        <section class="playground">
-            <ul class="deck">
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/01.png" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/02.png" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/03.png" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/04.png" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/05.png" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/06.gif" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/07.gif" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/08.gif" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/01.png" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/02.png" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/03.png" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/04.png" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/05.png" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/06.gif" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/07.gif" alt="image">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back">
-                        <img src="img/memory/08.gif" alt="image">
-                    </div>
-                </li>
-            </ul>
-        </section>
-    </section>
-
-    <script src="js/script.js"></script>
-
-</body>
+    </body>
 </html>

@@ -38,7 +38,7 @@
                 for (let i = 0; i < json.levels.length; i++) {
                     document.getElementById('level0').style.pointerEvents = "auto";
 
-                    if(JSON.parse(localStorage.getItem("levels"))[i].level === i){
+                    if(JSON.parse(localStorage.getItem("levels"))[i].level == i){
                         if(JSON.parse(localStorage.getItem("levels"))[i].points < 0) {
                             break;
                         }

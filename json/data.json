@@ -3,62 +3,140 @@
         {
             "mode": "time",
             "mode_settings": "20",
-            "cards": "16",
             "bild" : [
                 {
-                    "name": "cat",
+                    "name": "banana",
                     "image": "img/memory/01.png"
                 },
                 {
-                    "name": "cat",
+                    "name": "banana",
                     "image": "img/memory/01.png"
                 },
                 {
-                    "name": "dog",
+                    "name": "among",
                     "image": "img/memory/02.png"
                 },
                 {
-                    "name": "dog",
+                    "name": "among",
                     "image": "img/memory/02.png"
                 },
                 {
-                    "name": "cat",
-                    "image": "img/memory/01.png"
+                    "name": "burger",
+                    "image": "img/memory/03.png"
                 },
                 {
-                    "name": "cat",
-                    "image": "img/memory/01.png"
+                    "name": "burger",
+                    "image": "img/memory/03.png"
                 },
                 {
-                    "name": "dog",
-                    "image": "img/memory/02.png"
+                    "name": "ronaldinho",
+                    "image": "img/memory/04.png"
                 },
                 {
-                    "name": "dog",
-                    "image": "img/memory/02.png"
+                    "name": "ronaldinho",
+                    "image": "img/memory/04.png"
+                },
+                {
+                    "name": "meme",
+                    "image": "img/memory/05.png"
+                },
+                {
+                    "name": "meme",
+                    "image": "img/memory/05.png"
+                },
+                {
+                    "name": "tacco",
+                    "image": "img/memory/06.gif"
+                },
+                {
+                    "name": "tacco",
+                    "image": "img/memory/06.gif"
+                },
+                {
+                    "name": "toast",
+                    "image": "img/memory/07.gif"
+                },
+                {
+                    "name": "toast",
+                    "image": "img/memory/07.gif"
+                },
+                {
+                    "name": "fire",
+                    "image": "img/memory/08.gif"
+                },
+                {
+                    "name": "fire",
+                    "image": "img/memory/08.gif"
                 }
             ]
         },
         {
             "mode": "tries",
             "mode_settings": "2",
-            "cards": "16",
             "bild" : [
                 {
-                    "name": "cat",
+                    "name": "banana",
                     "image": "img/memory/01.png"
                 },
                 {
-                    "name": "cat",
+                    "name": "banana",
                     "image": "img/memory/01.png"
                 },
                 {
-                    "name": "dog",
+                    "name": "among",
                     "image": "img/memory/02.png"
                 },
                 {
-                    "name": "dog",
+                    "name": "among",
                     "image": "img/memory/02.png"
+                },
+                {
+                    "name": "burger",
+                    "image": "img/memory/03.png"
+                },
+                {
+                    "name": "burger",
+                    "image": "img/memory/03.png"
+                },
+                {
+                    "name": "ronaldinho",
+                    "image": "img/memory/04.png"
+                },
+                {
+                    "name": "ronaldinho",
+                    "image": "img/memory/04.png"
+                },
+                {
+                    "name": "meme",
+                    "image": "img/memory/05.png"
+                },
+                {
+                    "name": "meme",
+                    "image": "img/memory/05.png"
+                },
+                {
+                    "name": "tacco",
+                    "image": "img/memory/06.gif"
+                },
+                {
+                    "name": "tacco",
+                    "image": "img/memory/06.gif"
+                },
+                {
+                    "name": "toast",
+                    "image": "img/memory/07.gif"
+                },
+                {
+                    "name": "toast",
+                    "image": "img/memory/07.gif"
+                },
+                {
+                    "name": "fire",
+                    "image": "img/memory/08.gif"
+                },
+                {
+                    "name": "fire",
+                    "image": "img/memory/08.gif"
                 }
             ]
         },
@@ -137,28 +215,68 @@
             "mode_settings": "0",
             "bild" : [
                 {
-                    "name": "ferrari",
-                    "image": "img/memory/f1_03.gif"
+                    "name": "banana",
+                    "image": "img/memory/01.png"
                 },
                 {
-                    "name": "ferrari",
-                    "image": "img/memory/f1_03.gif"
+                    "name": "banana",
+                    "image": "img/memory/01.png"
                 },
                 {
-                    "name": "petronas",
-                    "image": "img/memory/f1_02.gif"
+                    "name": "among",
+                    "image": "img/memory/02.png"
                 },
                 {
-                    "name": "petronas",
-                    "image": "img/memory/f1_02.gif"
+                    "name": "among",
+                    "image": "img/memory/02.png"
                 },
                 {
-                    "name": "rain",
-                    "image": "img/memory/f1_01.gif"
+                    "name": "burger",
+                    "image": "img/memory/03.png"
                 },
                 {
-                    "name": "rain",
-                    "image": "img/memory/f1_01.gif"
+                    "name": "burger",
+                    "image": "img/memory/03.png"
+                },
+                {
+                    "name": "ronaldinho",
+                    "image": "img/memory/04.png"
+                },
+                {
+                    "name": "ronaldinho",
+                    "image": "img/memory/04.png"
+                },
+                {
+                    "name": "meme",
+                    "image": "img/memory/05.png"
+                },
+                {
+                    "name": "meme",
+                    "image": "img/memory/05.png"
+                },
+                {
+                    "name": "tacco",
+                    "image": "img/memory/06.gif"
+                },
+                {
+                    "name": "tacco",
+                    "image": "img/memory/06.gif"
+                },
+                {
+                    "name": "toast",
+                    "image": "img/memory/07.gif"
+                },
+                {
+                    "name": "toast",
+                    "image": "img/memory/07.gif"
+                },
+                {
+                    "name": "fire",
+                    "image": "img/memory/08.gif"
+                },
+                {
+                    "name": "fire",
+                    "image": "img/memory/08.gif"
                 }
             ]
         }

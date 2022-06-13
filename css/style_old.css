@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+    --backgroundcolor: #006E7F;
+    --primarycolor: #F8CB2E;
+    --secondarycolor: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* If you set box-sizing: border-box; on an element, padding and border are included in the width and height: */
+    /*font-family: 'Montserrat', sans-serif;*/
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--backgroundcolor);
+    min-height: 100vh; /* Relative to 1% of the height of the browser window size */
+}
+
+h1.title {
+    text-align: center;
+    font-size: 65px;
+    margin-bottom: 50px;
+}
+
+button {
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+}
+
+button:hover {
+    background:black;
+    color: var(--secondarycolor);
+}
+
+.wrapper {
+    height: 800px;
+}
+
+.wrapper section {
+    height: 100%;
+    float: left;
+}
+
+.menu {
+    width: 250px;
+    background-color: var(--secondarycolor);
+    border-radius: 10px;
+    margin-right: 5px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu h1 {
+    margin-bottom: 25px;
+}
+
+.menu span {
+   font-size: 25px;
+}
+
+.pointView, .counterView, .timerView {
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.playground {
+    width: 800px;
+    background-color: var(--secondarycolor);
+    border-radius: 10px;
+    margin-left: 5px;
+    padding: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.deck, .card, .view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deck {
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.deck .card {
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+    cursor: pointer;
+}
+
+.deck .card .view {
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Reagiert so nicht mehr auf "Zeiger-Events" -> Man kann zB Link mehr anklicken */
+    user-select: none; /* Gibt an, ob der Text eines Elements ausgewählt werden kann -> Text wird bei Doppelklick nicht markiert */
+    position: absolute;
+    background-color: var(--secondarycolor);
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transition: transform 0.25s linear;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .close span {
+    font-size: 40px;
+}
+
+.card .open {
+    transform: rotateY(-180deg);
+}
+
+.card .open img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card.flip .close {
+    transform: rotateY(180deg);
+}
+
+.card.flip .open {
+    transform: rotateY(0);
+}
+
+.card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+/*
+.card:hover .front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .back {
+    transform: rotateY(0);
+}*/
+
+.level {
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.level span {
+    font-size: 80px;
+}
+
+#levelGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 10px;
+    width: 1600px;
+    height: 800px;
+}
+
+.items{
+    margin-top:10px;
+    width:20px;
+    height:20px;
+    background:gold;
+}

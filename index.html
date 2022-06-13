@@ -5,14 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Index</title>
     <link rel="stylesheet" href="css/style.css"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="wrapper">
+    <!-- Popup-Fenster : Username -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="exit">
+                <span id="error"></span>
+                <span class="close">&times;</span>
+            </div>
+            <form>
+                <div class="nes-field">
+                    <label for="name_field">Your name</label>
+                    <input type="text" id="name_field" class="nes-input">
+                </div>
+                <a id="btnPopUp" class="buttonPopUp"></a>
+            </form>
+        </div>
+    </div>
+    <section class="wrapper" id="menu" >
         <h1 class="title">Memory Game</h1>
-        <button type="submit">Play</button>
-        <button type="submit">Store</button>
-        <button type="submit">About us</button>
+        <a onclick="enterUsername()" class="button"><span>Play</span></a>
+        <a href="bestenliste.html" class="button">Scoreboard</a>
+        <a href="about.html" class="button">About us</a>
     </section>
+
+    <script>
+        function enterUsername() {
+            if ("username" in localStorage) {
+                location.href = "level.html";
+            } else {
+                popup();
+            }
+        }
+
+        //Funktion zeigt Popup-Fenster an
+        function popup() {
+            // Get the modal and span
+            let modal = document.getElementById("myModal");
+            let span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            let btnPopUp = document.getElementById("btnPopUp");
+            btnPopUp.style.pointerEvents= "auto";
+            btnPopUp.textContent = "enter";
+            btnPopUp.onclick = function() {
+                let input = document.getElementById('name_field').value;
+                if (input == null || input === "") {
+                    document.getElementById("error").innerHTML = "Please enter a username";
+                } else {
+                    localStorage.setItem("username", input.toString());
+                    location.href = "level.html";
+                    modal.style.display = "none";
+                }
+            };
+
+            modal.style.display = "flex";
+        }
+
+        //Funktion um alle Einträge aus dem localstorage zu löschen
+        function clearAll() {
+            localStorage.clear();
+        }
+    </script>
 </body>
 </html>

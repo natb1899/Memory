@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Index</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<section class="wrapper" id="menu">
+    <h1 class="title">Scoreboard</h1>
+    <div id="scores"></div>
+    <div class="currentScore">your current score: <span id="content"></span></div>
+    <a onclick="postScore()" class="button">Safe my score</a>
+</section>
+
+<script>
+    if (!("username" in localStorage)) {
+        document.querySelector('.button').style.visibility = 'hidden';
+    }
+
+    document.getElementById("content").innerHTML = currentScore().toString();
+
+    //Gibt den Punktezwischenstand zurück
+    function currentScore() {
+        let points = 0;
+
+        if(JSON.parse(localStorage.getItem("levels")) == null){
+
+        }else {
+            for (let i = 0; i < JSON.parse(localStorage.getItem("levels")).length; i++) {
+                points = points + JSON.parse(localStorage.getItem("levels"))[i].points;
+            }
+        }
+
+        return points;
+    }
+
+    //Speichert den Score via API in die Datenbank
+    function postScore() {
+
+        fetch('http://localhost:8080/api/players', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({username: localStorage.getItem('username'), points: currentScore()})
+        }).then(response => {
+            return response.json();
+        }).then(data => {
+            console.log(data);
+        }).catch(e => console.log(e));
+
+        location.reload();
+    }
+
+    //Holt die TOP 5 User mit Punkte via API aus der Datenbank
+    fetch('http://localhost:8080/api/players')
+        .then(function (response) {
+            return response.json();
+        }).then(function (data) {
+        showScore(data);
+    }).catch(function (err) {
+        console.log('error: ' + err);
+    });
+
+    //Zeigt den Score auf der Seite an
+    function showScore(data) {
+        let mainContainer = document.getElementById("scores");
+        let count = 1;
+        for (let i = 0; i < data.length; i++) {
+            let div = document.createElement("div");
+            div.classList.add('test');
+            div.innerHTML = count + ') ' + data[i].username + ' (' + data[i].points + ')';
+            mainContainer.appendChild(div);
+            count++;
+        }
+    }
+
+    //Funktion um den Score zu löschen
+    function deleteScore() {
+        let id = 17;
+
+        fetch('http://localhost:8080/api/players/' + id, {
+            method: 'delete',
+        }).then(response => {
+            return response.json();
+        }).then(data => {
+            console.log(data);
+        }).catch(e => console.log(e));
+    }
+
+    //Funktion um die Datenbank zurückzusetzen
+    function deleteAll() {
+        fetch('http://localhost:8080/api/players', {
+            method: 'delete',
+        }).then(response => {
+            return response.json();
+        }).then(data => {
+            console.log(data);
+        }).catch(e => console.log(e));
+    }
+</script>
+</body>
+</html>

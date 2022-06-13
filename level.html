@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Level</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="wrapper" id="levelGrid">
+         <script>
+            //Holt alle Level-Daten aus der .json Datei.
+            fetch('../json/data.json')
+                .then(data => data.json())
+                .then(json => initLevels(json));
+
+            function initLevels(json) {
+                for (let i = 0; i < json.levels.length; i++) {
+                    let a = document.createElement('a');
+                    a.href = 'memory.html';
+                    a.className = 'level-link';
+                    a.id = 'level'+i;
+                    a.style.pointerEvents = "none";
+                    a.onclick = function() { store(i); };
+                    a.innerHTML = `
+                        <div class="level-container" >
+                            <h3 class="title">Level ${i+1}</h3>
+                            <div class="level-rating" id="${i}">
+
+                            </div>
+                        </div>`;
+                    document.getElementById('levelGrid').appendChild(a);
+                }
+
+                for (let i = 0; i < json.levels.length; i++) {
+                    document.getElementById('level0').style.pointerEvents = "auto";
+
+                    if(JSON.parse(localStorage.getItem("levels"))[i].level === i){
+                        if(JSON.parse(localStorage.getItem("levels"))[i].points < 0) {
+                            break;
+                        }
+                        let img = document.createElement('img');
+                        img.src = 'img/star.png';
+                        img.className = 'star';
+                        document.getElementById(i.toString()).appendChild(img);
+                        document.getElementById('level'+(i+1).toString()).style.pointerEvents = "auto";
+                    }
+                }
+            }
+
+            initLevels();
+
+            //Funktion um das ausgewählte Level in den localstorage zu speichern
+            function store (level) {
+                localStorage.setItem("level", level);
+            }
+        </script>
+    </section>
+    <script></script>
+</body>
+</html>

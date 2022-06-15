@@ -259,6 +259,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if(foundCards === cardsInGame) {
             //wird der Countdown oder Timer gestoppt
             clearInterval(countInterval);
+
+            if(mode === "mario"){
+                clearInterval(healthBarInterval);
+                clearInterval(heartFallingInterval);
+            }
+
             if(mode === "f1"){
                 //Die Punkte im Level f1 werden berechnet
                 countPoints();

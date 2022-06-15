@@ -453,6 +453,7 @@ span#error {
     100%{transform: translateY(var(--max-height))}
 }
 
+
 #healthBar {
     display: inline-block;
     position: relative;

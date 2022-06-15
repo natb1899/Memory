@@ -2,7 +2,7 @@
     "levels": [
         {
             "mode": "time",
-            "mode_settings": "20",
+            "mode_settings": "30",
             "bild" : [
                 {
                     "name": "banana",

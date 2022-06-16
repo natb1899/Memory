@@ -97,7 +97,7 @@ h1.title {
     cursor: url("../img/pointer_cursor.png"), pointer;
     margin: 0 auto;
     align-self: center;
-    background: var(--primarycolor);
+    background: var(--white);
     display: inline-block;
     position: relative;
     text-align: center;
@@ -112,7 +112,7 @@ h1.title {
 
 
 img:hover {
-    background: #B22520;
+    /*background: #B22520;*/
     box-shadow: inset -4px -4px 0 0 var(--thirdcolorHover);
 }
 
@@ -527,4 +527,12 @@ div.mario{
     z-index: 99;
     background: none;
     box-shadow: none;
+}
+
+div.users {
+    background-color: var(--black);
+    color: white;
+    margin-bottom: 5px;
+    padding: 2px 10px;
+
 }

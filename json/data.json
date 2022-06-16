@@ -2,7 +2,7 @@
     "levels": [
         {
             "mode": "time",
-            "mode_settings": "30",
+            "mode_settings": "40",
             "bild" : [
                 {
                     "name": "flitzer",

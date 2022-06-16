@@ -55,7 +55,6 @@
         }).then(data => {
             console.log(data);
         }).catch(e => console.log(e));
-
         location.reload();
     }
 
@@ -75,7 +74,7 @@
         let count = 1;
         for (let i = 0; i < data.length; i++) {
             let div = document.createElement("div");
-            div.classList.add('test');
+            div.classList.add('users');
             div.innerHTML = count + ') ' + data[i].username + ' (' + data[i].points + ')';
             mainContainer.appendChild(div);
             count++;

@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //Holt alle Level Einstellungen und Bilder aus der .json Datei
     fetch('../json/data.json')
         .then(data => data.json())
-        .then(json => initBoard(json, level));
+        .then(json => initPlayground(json, level));
 
     //Setzt die Einstellungen für die gewissen Levels
     function setLevelSettings(levelSettings) {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'time': {
 
                 //Setzen der Rückseite der Memory-Karte
-                bild = "fussball.jpg"
+                bild = "ball.png"
 
                 timer.textContent = mode_settings;
 
@@ -76,13 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 character.remove();
 
                 //Background-Sound
-                window.onload = function() {
-                    audio = new Audio('sound/wakaWaka.mp3');
-                    audio.playbackRate = 1.5
-                    audio.volume = 0.1
-                    audio.loop = true
-                    audio.play()
-                }
+                audio = new Audio('sound/wakaWaka.mp3');
+                audio.playbackRate = 1.25
+                audio.volume = 0.1
+                audio.loop = true
+                audio.play();
                 break;
             }
             case 'tries': {
@@ -99,12 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 bossCage.remove();
                 character.remove();
 
-                window.onload = function() {
-                    audio = new Audio('sound/Pokemon.mp3');
-                    audio.volume = 0.1
-                    audio.loop = true
-                    audio.play()
-                }
+                //Background-Sound
+                audio = new Audio('sound/Pokemon.mp3');
+                audio.volume = 0.1
+                audio.loop = true
+                audio.play();
                 break;
             }
             case 'mario': {
@@ -119,16 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 character.remove();
 
                 //Background Sounds
-                window.onload = function() {
-                    audio = new Audio('sound/marioStart.mp3');
-                    audio.volume = 0.4
-                    audio.play()
-                    audio = new Audio('sound/SuperMarioMusic.mp3');
-                    audio.volume = 0.1
-                    audio.loop = true
-                    audio.currentTime = 0
-                    audio.play()
-                }
+                audio = new Audio('sound/marioStart.mp3');
+                audio.volume = 0.4
+                audio.play();
+                audio = new Audio('sound/SuperMarioMusic.mp3');
+                audio.volume = 0.1
+                audio.loop = true
+                audio.currentTime = 0
+                audio.play();
                 break;
             }
             case 'f1': {
@@ -151,20 +146,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 bossCage.remove();
 
                 //Background Sound
-                window.onload = function() {
-                    audio = new Audio('sound/F1.mp3');
-                    audio.volume = 0.1
-                    audio.loop = true
-                    audio.currentTime = 0
-                    audio.play()
-                }
+                audio = new Audio('sound/F1.mp3');
+                audio.volume = 0.1
+                audio.loop = true
+                audio.currentTime = 0
+                audio.play()
                 break;
             }
         }
     }
 
     //Erstellt das "Spielbrett"
-    function initBoard(json, level) {
+    function initPlayground(json, level) {
 
         //Setzt die richtige Einstellung für das jeweilige Level
         let levelSettings = json.levels[level];
@@ -198,8 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function flipCard() {
-
-
         numberOfFlips++;
 
         if(numberOfFlips === 1){
@@ -300,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
         attemptsHolder.textContent = tries.toString();
         pointsHolder.textContent = points.toString();
 
-        //Wenn die gefundenen Karten gleich sind, wie die Anzahl Karten im Spiel
+        //Wenn die gefundenen Karten gleich sind, wie die Anzahl Karten im Spiel, ist das Spiel beendet
         if(foundCards === cardsInGame) {
             //wird der Countdown oder Timer gestoppt
             clearInterval(countInterval);
@@ -310,10 +301,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearInterval(heartFallingInterval);
             }
 
-            if(mode === "f1"){
-                //Die Punkte im Level f1 werden berechnet
-                countPoints();
-            }
+            //Die Punkte berechnen
+            countPoints();
 
             //Punkte werden dem localstorage hinzugefügt
             addPointsToLevel(localStorage.getItem("level"), points);
@@ -324,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("modal-bild").classList.remove("error");
 
             //Das Popup für das erfolgreiche Abschliessen des Levels wird angezeigt
-
             popup("made",'Yeah, the level was completed.\r\nTry again or go to the next level.', 'back to levels', 'level.html', points);
 
             //Background Sound beenden und Win-Sound abspielen
@@ -338,12 +326,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Punkteberechnung für das Level f1 anhand der gebrauchten Zeit.
     function countPoints() {
-        let timeCounter = timer.textContent;
-
-        if(timeCounter < 30){
-            points = 4000;
-        }else {
-            points = 300;
+        if(mode === 'f1'){
+            let timeCounter = timer.textContent;
+            points = Math.round(15000/timeCounter);
+        }
+        if(mode === 'time' || mode === 'mario'){
+            let countdownCounter = timer.textContent;
+            points += countdownCounter * 50;
+        }
+        if(mode === 'tries'){
+            points += tries * 50;
         }
 
     }
@@ -376,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Wenn keine verfügbaren Züge mehr, dann Fehler Pop-up-Fenster anzeigen
         if(tries === 0) {
             if(cardsInGame > 0){
-                popup("error", 'Sorry, the level was not completed.\r\nTry again or return to the home page.', 'back to start', 'index.html');
+                popup("error", 'Sorry, the level was not completed.\r\nTry again or return to the home page.', 'back to start', 'index.html', points);
 
                 // Background Sounf beenden und Loose-Sound abspielen
                 audio.pause()
@@ -554,6 +546,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
-    initBoard();
+    document.getElementById("playPauseButton").addEventListener("click", playPause)
+
+    function playPause() {
+        if(!audio.paused){
+            audio.pause();
+        }else{
+            audio.play();
+        }
+    }
+
+    initPlayground();
 
 })

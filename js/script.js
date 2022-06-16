@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     let cardsList = [];
-    let cardsInGame = 0;
+    let cardPairs = 0;
 
     const grid = document.querySelector('.playground');
     const attemptsHolder = document.querySelector('.attemptsHolder');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let mode;
     let mode_settings;
 
-    let bild;
+    let kartenRückseiteBild;
     let card;
     let audio;
 
@@ -50,6 +50,39 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => data.json())
         .then(json => initPlayground(json, level));
 
+    //Erstellt das "Spielbrett"
+    function initPlayground(json, level) {
+
+        //Setzt die richtige Einstellung für das jeweilige Level
+        let levelSettings = json.levels[level];
+        setLevelSettings(levelSettings);
+
+        //Setzt das richtige Grid für die Anzahl Karten, die im Spiel sind.
+        grid.style.setProperty('grid-template-columns', 'repeat(' + (cardsList.length / 4) + ', 1fr)');
+
+        //Die Memorykarten werden erstellt
+        for (let i = 0; i < cardsList.length; i++) {
+            //HTML-Element <img> wird erstellt
+            card = document.createElement('img');
+            //Dem Element <img> wird die richtige Rückseite der Karten hinzugefügt
+            card.setAttribute('src', 'img/memory/' + kartenRückseiteBild);
+            //Setzt der Karte eine ID, um später die richtige Karte in dem Array zu finden.
+            card.setAttribute('data-id', i.toString());
+            //EventListener um die Karte umzudrehen
+            card.addEventListener('click', flipCard);
+            //Dem "Spielbrett" die Memorykarte hinzufügen
+            grid.appendChild(card);
+        }
+
+        //Ausblenden des Cursors beim Level f1
+        if(mode === 'f1'){
+            document.querySelectorAll("img").forEach(function(item){
+                item.style.cursor = "none";
+                item.style.userSelect = "none";
+            });
+        }
+    }
+
     //Setzt die Einstellungen für die gewissen Levels
     function setLevelSettings(levelSettings) {
         mode = levelSettings.mode;
@@ -60,13 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
         //Sortiert das Array nach Zufall, dass das Memory nicht jedes Mal gleich ist
         cardsList.sort(() => 0.5 - Math.random());
 
-        cardsInGame = cardsList.length / 2;
+        cardPairs = cardsList.length / 2;
 
         switch (mode){
             case 'time': {
-
                 //Setzen der Rückseite der Memory-Karte
-                bild = "ball.png"
+                kartenRückseiteBild = "ball.png"
 
                 timer.textContent = mode_settings;
 
@@ -84,9 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             }
             case 'tries': {
-
                 //Setzen der Rückseite der Memory-Karte
-                bild = "Pokeball.jpg"
+                kartenRückseiteBild = "Pokeball.jpg"
 
                 tries = mode_settings;
 
@@ -105,9 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             }
             case 'mario': {
-
                 //Setzen der Rückseite der Memory-Karte
-                bild = "fragezeichen.png"
+                kartenRückseiteBild = "fragezeichen.png"
 
                 timer.textContent = mode_settings;
 
@@ -127,15 +157,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             }
             case 'f1': {
-
                 //Setzen der Rückseite der Memory-Karte
-                bild = "f1street.png"
+                kartenRückseiteBild = "f1street.png"
 
                 timer.textContent = mode_settings;
 
-                grid.style.cursor = "none";
-                grid.style.gap = "25px";
-                grid.style.gridTemplateColumns = "repeat(3, 1fr)";
+//              grid.style.cursor = "none";
+//              grid.style.gap = "25px";
+//              grid.style.gridTemplateColumns = "repeat(3, 1fr)";
 
                 //Zeigt bevor man das Memory spielen kann, die Regeln und die Spielsteuerung für das Level an.
                 popup("infos", 'Please use the keys w,a,s,d to move the car forward.\r\n To flip the cards, use the space bar.\r\n You need to find the teammates, not the same driver twice!', 'back to start', 'index.html');
@@ -153,40 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 audio.play()
                 break;
             }
-        }
-    }
-
-    //Erstellt das "Spielbrett"
-    function initPlayground(json, level) {
-
-        //Setzt die richtige Einstellung für das jeweilige Level
-        let levelSettings = json.levels[level];
-        setLevelSettings(levelSettings);
-
-        //Setzt das richtige Grid für die Anzahl Karten, die im Spiel sind.
-        grid.style.setProperty('grid-template-columns', 'repeat(' + (cardsList.length / 4) + ', 1fr)');
-
-        //Die Memorykarten werden erstellt
-        for (let i = 0; i < cardsList.length; i++) {
-            //HTML-Element <img> wird erstellt
-            card = document.createElement('img');
-            //Dem Element <img> wird die richtige Rückseite der Karten hinzugefügt
-            card.setAttribute('src', 'img/memory/' + bild);
-            //Setzt der Karte eine ID, um später die richtige Karte in dem Array zu finden.
-            card.setAttribute('data-id', i.toString());
-            //EventListener um die Karte umzudrehen
-            card.addEventListener('click', flipCard);
-
-            //Ausblenden des Cursors beim Level f1
-            if(mode === 'f1'){
-                document.querySelectorAll("img").forEach(function(item){
-                    item.style.cursor = "none";
-                    item.style.userSelect = "none";
-                });
-            }
-
-            //Dem "Spielbrett" die Memorykarte hinzufügen
-            grid.appendChild(card);
         }
     }
 
@@ -264,8 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             //Wenn die Karten nicht übereinstimmen, wird wieder die Rückseite der Karten eingeblendet
-            cards[firstCard].setAttribute('src', 'img/memory/' + bild);
-            cards[secondCard].setAttribute('src', 'img/memory/' + bild);
+            cards[firstCard].setAttribute('src', 'img/memory/' + kartenRückseiteBild);
+            cards[secondCard].setAttribute('src', 'img/memory/' + kartenRückseiteBild);
 
             //Es wird ein Shake-Effekt via CSS hinzugefügt
             cards[firstCard].classList.add("shake");
@@ -292,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pointsHolder.textContent = points.toString();
 
         //Wenn die gefundenen Karten gleich sind, wie die Anzahl Karten im Spiel, ist das Spiel beendet
-        if(foundCards === cardsInGame) {
+        if(foundCards === cardPairs) {
             //wird der Countdown oder Timer gestoppt
             clearInterval(countInterval);
 
@@ -341,7 +336,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(mode === 'tries'){
             points += tries * 50;
         }
-
     }
 
     function addPointsToLevel(level, points) {
@@ -371,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tries = tries - 1;
         //Wenn keine verfügbaren Züge mehr, dann Fehler Pop-up-Fenster anzeigen
         if(tries === 0) {
-            if(cardsInGame > 0){
+            if(cardPairs > 0){
                 popup("error", 'Sorry, the level was not completed.\r\nTry again or return to the home page.', 'back to start', 'index.html', points);
 
                 // Background Sounf beenden und Loose-Sound abspielen
@@ -468,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //Funktion gibt zufällige Zahl zwischen 0 und der Breite des Bildschirms zurück, um die Herzen für Peach so zufällig fallen zu lassen
     function generateRandomPlaceForHeartFalling(maxLimit){
         let rand = Math.random() * maxLimit;
-        rand = Math.floor(rand); // 99
+        rand = Math.floor(rand);
         return rand;
     }
 

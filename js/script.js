@@ -1,4 +1,5 @@
-//Das Script wird dank DOMContentLoaded bevor den Bildern etc. geladen
+//DOMContentLoaded - der Browser hat HTML vollständig geladen,
+//aber externe Ressourcen wie Bilder <img> und Stylesheets wurden möglicherweise noch nicht geladen.
 document.addEventListener('DOMContentLoaded', () => {
 
     let cardsList = [];

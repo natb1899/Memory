@@ -536,3 +536,14 @@ div.users {
     padding: 2px 10px;
 
 }
+
+a.back {
+    margin-right: 50px;
+    border: 1px solid black;
+    padding: 5px;
+    color: black;
+}
+
+a.back:hover {
+    cursor: url("../img/pointer_cursor.png"), pointer;
+}

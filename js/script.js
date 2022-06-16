@@ -330,9 +330,13 @@ document.addEventListener('DOMContentLoaded', () => {
             let timeCounter = timer.textContent;
             points = Math.round(15000/timeCounter);
         }
-        if(mode === 'time' || mode === 'mario'){
+        if(mode === 'time'){
             let countdownCounter = timer.textContent;
             points += countdownCounter * 50;
+        }
+        if(mode === 'mario'){
+            let countdownCounter = timer.textContent;
+            points += countdownCounter * 25;
         }
         if(mode === 'tries'){
             points += tries * 50;

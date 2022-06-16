@@ -2,141 +2,141 @@
     "levels": [
         {
             "mode": "time",
-            "mode_settings": "20",
+            "mode_settings": "30",
             "bild" : [
                 {
-                    "name": "banana",
-                    "image": "img/memory/01.png"
+                    "name": "flitzer",
+                    "image": "img/level1/flitzer.jpg"
                 },
                 {
-                    "name": "banana",
-                    "image": "img/memory/01.png"
+                    "name": "flitzer",
+                    "image": "img/level1/flitzer.jpg"
                 },
                 {
-                    "name": "among",
-                    "image": "img/memory/02.png"
+                    "name": "klose",
+                    "image": "img/level1/klose.jpg"
                 },
                 {
-                    "name": "among",
-                    "image": "img/memory/02.png"
+                    "name": "klose",
+                    "image": "img/level1/klose.jpg"
                 },
                 {
-                    "name": "burger",
-                    "image": "img/memory/03.png"
+                    "name": "maradona",
+                    "image": "img/level1/maradona.png"
                 },
                 {
-                    "name": "burger",
-                    "image": "img/memory/03.png"
+                    "name": "maradona",
+                    "image": "img/level1/maradona.png"
+                },
+                {
+                    "name": "neymar",
+                    "image": "img/level1/neymar.png"
+                },
+                {
+                    "name": "neymar",
+                    "image": "img/level1/neymar.png"
+                },
+                {
+                    "name": "pepe",
+                    "image": "img/level1/pepe.jpg"
+                },
+                {
+                    "name": "pepe",
+                    "image": "img/level1/pepe.jpg"
                 },
                 {
                     "name": "ronaldinho",
-                    "image": "img/memory/04.png"
+                    "image": "img/level1/ronaldinho.png"
                 },
                 {
                     "name": "ronaldinho",
-                    "image": "img/memory/04.png"
+                    "image": "img/level1/ronaldinho.png"
                 },
                 {
-                    "name": "meme",
-                    "image": "img/memory/05.png"
+                    "name": "ronaldo",
+                    "image": "img/level1/ronaldo.jpg"
                 },
                 {
-                    "name": "meme",
-                    "image": "img/memory/05.png"
+                    "name": "ronaldo",
+                    "image": "img/level1/ronaldo.jpg"
                 },
                 {
-                    "name": "tacco",
-                    "image": "img/memory/06.gif"
+                    "name": "zidane",
+                    "image": "img/level1/zidane.jpg"
                 },
                 {
-                    "name": "tacco",
-                    "image": "img/memory/06.gif"
-                },
-                {
-                    "name": "toast",
-                    "image": "img/memory/07.gif"
-                },
-                {
-                    "name": "toast",
-                    "image": "img/memory/07.gif"
-                },
-                {
-                    "name": "fire",
-                    "image": "img/memory/08.gif"
-                },
-                {
-                    "name": "fire",
-                    "image": "img/memory/08.gif"
+                    "name": "zidane",
+                    "image": "img/level1/zidane.jpg"
                 }
             ]
         },
         {
             "mode": "tries",
-            "mode_settings": "2",
+            "mode_settings": "15",
             "bild" : [
                 {
-                    "name": "banana",
-                    "image": "img/memory/01.png"
+                    "name": "bisasam",
+                    "image": "img/level2/bisasam.gif"
                 },
                 {
-                    "name": "banana",
-                    "image": "img/memory/01.png"
+                    "name": "bisasam",
+                    "image": "img/level2/bisasam.gif"
                 },
                 {
-                    "name": "among",
-                    "image": "img/memory/02.png"
+                    "name": "evoli",
+                    "image": "img/level2/evoli.gif"
                 },
                 {
-                    "name": "among",
-                    "image": "img/memory/02.png"
+                    "name": "evoli",
+                    "image": "img/level2/evoli.gif"
                 },
                 {
-                    "name": "burger",
-                    "image": "img/memory/03.png"
+                    "name": "feurigel",
+                    "image": "img/level2/feurigel.gif"
                 },
                 {
-                    "name": "burger",
-                    "image": "img/memory/03.png"
+                    "name": "feurigel",
+                    "image": "img/level2/feurigel.gif"
                 },
                 {
-                    "name": "ronaldinho",
-                    "image": "img/memory/04.png"
+                    "name": "glumanda",
+                    "image": "img/level2/glumanda.gif"
                 },
                 {
-                    "name": "ronaldinho",
-                    "image": "img/memory/04.png"
+                    "name": "glumanda",
+                    "image": "img/level2/glumanda.gif"
                 },
                 {
-                    "name": "meme",
-                    "image": "img/memory/05.png"
+                    "name": "pikachu",
+                    "image": "img/level2/pikachu.gif"
                 },
                 {
-                    "name": "meme",
-                    "image": "img/memory/05.png"
+                    "name": "pikachu",
+                    "image": "img/level2/pikachu.gif"
                 },
                 {
-                    "name": "tacco",
-                    "image": "img/memory/06.gif"
+                    "name": "raichu",
+                    "image": "img/level2/raichu.gif"
                 },
                 {
-                    "name": "tacco",
-                    "image": "img/memory/06.gif"
+                    "name": "raichu",
+                    "image": "img/level2/raichu.gif"
                 },
                 {
-                    "name": "toast",
-                    "image": "img/memory/07.gif"
+                    "name": "raupy",
+                    "image": "img/level2/raupy.gif"
                 },
                 {
-                    "name": "toast",
-                    "image": "img/memory/07.gif"
+                    "name": "raupy",
+                    "image": "img/level2/raupy.gif"
                 },
                 {
-                    "name": "fire",
-                    "image": "img/memory/08.gif"
+                    "name": "schiggy",
+                    "image": "img/level2/schiggy.gif"
                 },
                 {
-                    "name": "fire",
-                    "image": "img/memory/08.gif"
+                    "name": "schiggy",
+                    "image": "img/level2/schiggy.gif"
                 }
             ]
         },
@@ -145,68 +145,68 @@
             "mode_settings": "60",
             "bild" : [
                 {
-                    "name": "banana",
-                    "image": "img/memory/01.png"
+                    "name": "blume",
+                    "image": "img/level3/blume.jpg"
                 },
                 {
-                    "name": "banana",
-                    "image": "img/memory/01.png"
+                    "name": "blume",
+                    "image": "img/level3/blume.jpg"
                 },
                 {
-                    "name": "among",
-                    "image": "img/memory/02.png"
+                    "name": "Bowser",
+                    "image": "img/level3/Bowser.jpg"
                 },
                 {
-                    "name": "among",
-                    "image": "img/memory/02.png"
+                    "name": "Bowser",
+                    "image": "img/level3/Bowser.jpg"
                 },
                 {
-                    "name": "burger",
-                    "image": "img/memory/03.png"
+                    "name": "gumba",
+                    "image": "img/level3/gumba.jpg"
                 },
                 {
-                    "name": "burger",
-                    "image": "img/memory/03.png"
+                    "name": "gumba",
+                    "image": "img/level3/gumba.jpg"
                 },
                 {
-                    "name": "ronaldinho",
-                    "image": "img/memory/04.png"
+                    "name": "luigi",
+                    "image": "img/level3/luigi.jpg"
                 },
                 {
-                    "name": "ronaldinho",
-                    "image": "img/memory/04.png"
+                    "name": "luigi",
+                    "image": "img/level3/luigi.jpg"
                 },
                 {
-                    "name": "meme",
-                    "image": "img/memory/05.png"
+                    "name": "mario",
+                    "image": "img/level3/mario.jpg"
                 },
                 {
-                    "name": "meme",
-                    "image": "img/memory/05.png"
+                    "name": "mario",
+                    "image": "img/level3/mario.jpg"
                 },
                 {
-                    "name": "tacco",
-                    "image": "img/memory/06.gif"
+                    "name": "pilz",
+                    "image": "img/level3/pilz.jpg"
                 },
                 {
-                    "name": "tacco",
-                    "image": "img/memory/06.gif"
+                    "name": "pilz",
+                    "image": "img/level3/pilz.jpg"
                 },
                 {
-                    "name": "toast",
-                    "image": "img/memory/07.gif"
+                    "name": "pilz2",
+                    "image": "img/level3/pilz2.jpg"
                 },
                 {
-                    "name": "toast",
-                    "image": "img/memory/07.gif"
+                    "name": "pilz2",
+                    "image": "img/level3/pilz2.jpg"
                 },
                 {
-                    "name": "fire",
-                    "image": "img/memory/08.gif"
+                    "name": "yoshi",
+                    "image": "img/level3/yoshi.jpg"
                 },
                 {
-                    "name": "fire",
-                    "image": "img/memory/08.gif"
+                    "name": "yoshi",
+                    "image": "img/level3/yoshi.jpg"
                 }
             ]
         },
@@ -215,68 +215,68 @@
             "mode_settings": "0",
             "bild" : [
                 {
-                    "name": "banana",
-                    "image": "img/memory/01.png"
+                    "name": "mercedes",
+                    "image": "img/level4/russel.png"
                 },
                 {
-                    "name": "banana",
-                    "image": "img/memory/01.png"
+                    "name": "mercedes",
+                    "image": "img/level4/hamilton.png"
                 },
                 {
-                    "name": "among",
-                    "image": "img/memory/02.png"
+                    "name": "ferrari",
+                    "image": "img/level4/sainz.png"
                 },
                 {
-                    "name": "among",
-                    "image": "img/memory/02.png"
+                    "name": "ferrari",
+                    "image": "img/level4/leclerc.png"
                 },
                 {
-                    "name": "burger",
-                    "image": "img/memory/03.png"
+                    "name": "redBull",
+                    "image": "img/level4/perez.png"
                 },
                 {
-                    "name": "burger",
-                    "image": "img/memory/03.png"
+                    "name": "redBull",
+                    "image": "img/level4/verstappen.png"
                 },
                 {
-                    "name": "ronaldinho",
-                    "image": "img/memory/04.png"
+                    "name": "mclaren",
+                    "image": "img/level4/ricciardo.png"
                 },
                 {
-                    "name": "ronaldinho",
-                    "image": "img/memory/04.png"
+                    "name": "mclaren",
+                    "image": "img/level4/norris.png"
                 },
                 {
-                    "name": "meme",
-                    "image": "img/memory/05.png"
+                    "name": "alfa",
+                    "image": "img/level4/bottas.png"
                 },
                 {
-                    "name": "meme",
-                    "image": "img/memory/05.png"
+                    "name": "alfa",
+                    "image": "img/level4/zhou.png"
                 },
                 {
-                    "name": "tacco",
-                    "image": "img/memory/06.gif"
+                    "name": "haas",
+                    "image": "img/level4/schumacher.png"
                 },
                 {
-                    "name": "tacco",
-                    "image": "img/memory/06.gif"
+                    "name": "haas",
+                    "image": "img/level4/magnussen.png"
                 },
                 {
-                    "name": "toast",
-                    "image": "img/memory/07.gif"
+                    "name": "alpine",
+                    "image": "img/level4/ocon.png"
                 },
                 {
-                    "name": "toast",
-                    "image": "img/memory/07.gif"
+                    "name": "alpine",
+                    "image": "img/level4/alonso.png"
                 },
                 {
-                    "name": "fire",
-                    "image": "img/memory/08.gif"
+                    "name": "astonMartin",
+                    "image": "img/level4/vettel.png"
                 },
                 {
-                    "name": "fire",
-                    "image": "img/memory/08.gif"
+                    "name": "astonMartin",
+                    "image": "img/level4/stroll.png"
                 }
             ]
         }

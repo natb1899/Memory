@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let bild;
     let card;
+    let audio;
 
     let x = 0;
     let y = 0;
@@ -63,8 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         switch (mode){
             case 'time': {
+
                 //Setzen der Rückseite der Memory-Karte
-                bild = "placeholder.png"
+                bild = "fussball.jpg"
 
                 timer.textContent = mode_settings;
 
@@ -72,11 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 attemptsView.remove();
                 bossCage.remove();
                 character.remove();
+
+                //Background-Sound
+                window.onload = function() {
+                    audio = new Audio('sound/wakaWaka.mp3');
+                    audio.playbackRate = 1.5
+                    audio.volume = 0.1
+                    audio.loop = true
+                    audio.play()
+                }
                 break;
             }
             case 'tries': {
+
                 //Setzen der Rückseite der Memory-Karte
-                bild = "placeholder.png"
+                bild = "Pokeball.jpg"
+
                 tries = mode_settings;
 
                 attemptsHolder.textContent = mode_settings;
@@ -85,20 +98,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 timerView.remove();
                 bossCage.remove();
                 character.remove();
+
+                window.onload = function() {
+                    audio = new Audio('sound/Pokemon.mp3');
+                    audio.volume = 0.1
+                    audio.loop = true
+                    audio.play()
+                }
                 break;
             }
             case 'mario': {
+
                 //Setzen der Rückseite der Memory-Karte
-                bild = "placeholder.png"
+                bild = "fragezeichen.png"
 
                 timer.textContent = mode_settings;
 
                 //Alle nicht gebrauchten HTML-Elemente in diesem Level ausblenden
                 attemptsView.remove();
                 character.remove();
+
+                //Background Sounds
+                window.onload = function() {
+                    audio = new Audio('sound/marioStart.mp3');
+                    audio.volume = 0.4
+                    audio.play()
+                    audio = new Audio('sound/SuperMarioMusic.mp3');
+                    audio.volume = 0.1
+                    audio.loop = true
+                    audio.currentTime = 0
+                    audio.play()
+                }
                 break;
             }
             case 'f1': {
+
                 //Setzen der Rückseite der Memory-Karte
                 bild = "f1street.png"
 
@@ -109,12 +143,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 grid.style.gridTemplateColumns = "repeat(3, 1fr)";
 
                 //Zeigt bevor man das Memory spielen kann, die Regeln und die Spielsteuerung für das Level an.
-                popup("infos", 'Please use the keys w,a,s,d to move the car forward.\r\n To flip the cards, use the space bar.', 'back to start', 'index.html');
+                popup("infos", 'Please use the keys w,a,s,d to move the car forward.\r\n To flip the cards, use the space bar.\r\n You need to find the teammates, not the same driver twice!', 'back to start', 'index.html');
 
                 //Alle nicht gebrauchten HTML-Elemente in diesem Level ausblenden
                 attemptsView.remove();
                 pointView.remove();
                 bossCage.remove();
+
+                //Background Sound
+                window.onload = function() {
+                    audio = new Audio('sound/F1.mp3');
+                    audio.volume = 0.1
+                    audio.loop = true
+                    audio.currentTime = 0
+                    audio.play()
+                }
                 break;
             }
         }
@@ -155,6 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function flipCard() {
+
+
         numberOfFlips++;
 
         if(numberOfFlips === 1){
@@ -273,7 +318,15 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("modal-bild").classList.remove("error");
 
             //Das Popup für das erfolgreiche Abschliessen des Levels wird angezeigt
+
             popup("made",'Yeah, the level was completed.\r\nTry again or go to the next level.', 'back to levels', 'level.html', points);
+
+            //Background Sound beenden und Win-Sound abspielen
+            audio.pause()
+            audio.currentTime = 0;
+            audio = new Audio('sound/marioWin.mp3');
+            audio.volume = 0.4
+            audio.play()
         }
     }
 
@@ -318,6 +371,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if(tries === 0) {
             if(cardsInGame > 0){
                 popup("error", 'Sorry, the level was not completed.\r\nTry again or return to the home page.', 'back to start', 'index.html');
+
+                // Background Sounf beenden und Loose-Sound abspielen
+                audio.pause()
+                audio.currentTime = 0
+                audio = new Audio('sound/marioLoose.mp3');
+                audio.volume = 0.4
+                audio.play()
             }
         }
     }
@@ -333,8 +393,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (0 > secondsRemaining) {
                 //Countdown wird gestoppt
                 clearInterval(countInterval);
+
                 //Pop-up-Fenster erscheint
                 popup("error", 'Sorry, the level was not completed.\r\nTry again or return to the home page.', 'back to start', 'index.html', points);
+
+                // Background Sound beenden und Loose-Sound abspielen
+                audio.pause()
+                audio.currentTime = 0
+                audio = new Audio('sound/marioLoose.mp3');
+                audio.volume = 0.4
+                audio.play()
+
                 document.querySelector("body").style.pointerEvents = 'none';
             }
 
@@ -409,7 +478,16 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(countInterval);
             clearInterval(healthBarInterval);
             clearInterval(heartFallingInterval);
+
             popup("error", 'Sorry, the level was not completed.\r\nTry again or return to the home page.', 'back to start', 'index.html', points);
+
+            //Background Sound beenden und Loose-Sound abspielen
+            audio.pause()
+            audio.currentTime = 0
+            audio = new Audio('sound/marioLoose.mp3');
+            audio.volume = 0.4
+            audio.play()
+
             document.querySelector("body").style.pointerEvents = 'none';
         }
 

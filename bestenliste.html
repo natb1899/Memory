@@ -18,6 +18,7 @@
 </section>
 
 <script>
+
     if (!("username" in localStorage)) {
         document.querySelector('.button').style.visibility = 'hidden';
     }
@@ -104,6 +105,7 @@
             console.log(data);
         }).catch(e => console.log(e));
     }
+
 </script>
 </body>
 </html>
